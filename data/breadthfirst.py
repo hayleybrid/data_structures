@@ -25,8 +25,29 @@ def level_order_traversal(root: Node) -> list[list[int]]:
         res.append(new_level)
     return res
 
-def build_tree(nodes, f):...
+def build_tree(nodes, f=int):
+    if not nodes:
+        return None
+    root = Node(f(nodes[0]))
+    queue = deque([root])
+    i = 1
+    while queue and i < len(nodes):
+        current = queue.popleft()
+        if i < len(nodes) and nodes[i] is not None:
+            current.left = Node(f(nodes[i]))
+            queue.append(current.left)
+        i += 1
+        if i < len(nodes) and nodes[i] is not None:
+            current.right = Node(f(nodes[i]))
+            queue.append(current.right)
+        i += 1
+    return root
 
-if __name__ == "__main__":...
+if __name__ == "__main__":
+    raw = input("Enter tree nodes in level order (use None for missing nodes, separated by spaces):\n")
+    parts = [None if x == "None" else x for x in raw.split()]
+    root = build_tree(parts, f=int)
+    result = level_order_traversal(root)
+    print("Level order traversal:", result)
 
 

@@ -13,5 +13,6 @@ def longest_substring_without_repeating(s: str) -> int:
         longest = max(longest, right - left + 1)
     return longest
 
-
-
+# get input from user
+user_input = input("Enter a string: ")
+print("Length of longest substring without repeating characters:", longest_substring_without_repeating(user_input))

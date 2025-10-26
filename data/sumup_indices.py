@@ -1,6 +1,6 @@
-//two sum
-//given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. 
-//you may assume that each input would have exactly one solution, and you may not use the same element twice.
+#two sum
+#given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. 
+#you may assume that each input would have exactly one solution, and you may not use the same element twice.
 
 def two_sum(nums, target):
     num_to_index = {}                   
@@ -16,6 +16,12 @@ if __name__ == "__main__":
     nums = [int(x) for x in input().split()]
     target = int(input())
     res = two_sum(nums, target)
-    print(" ".join(map(str, res)))
+    if res:
+        print("Indices:", " ".join(map(str, res)))
+    else:
+        print("No solution found.")
+
+
+
 
 
